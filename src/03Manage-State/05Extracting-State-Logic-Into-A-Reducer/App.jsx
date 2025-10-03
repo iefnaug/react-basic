@@ -1,6 +1,9 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import AddTask from './AddTask';
 import TaskList from './TaskList';
+// import {useReducer} from "react";
+import tasksReducer from "./tasksReducer";
+import {useImmerReducer} from "use-immer";
 
 let nextId = 3;
 const initialTasks = [
@@ -10,32 +13,48 @@ const initialTasks = [
 ];
 
 export default function TaskApp() {
-    const [tasks, setTasks] = useState(initialTasks);
+    // const [tasks, setTasks] = useState(initialTasks);
+
+    // const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
+    const [tasks, dispatch] = useImmerReducer(tasksReducer, initialTasks);
 
     function handleAddTask(text) {
-        setTasks([
-            ...tasks,
-            {
-                id: nextId++,
-                text: text,
-                done: false,
-            }
-        ]);
+        // setTasks([
+        //     ...tasks,
+        //     {
+        //         id: nextId++,
+        //         text: text,
+        //         done: false,
+        //     }
+        // ]);
+        dispatch({
+            type: 'added',
+            id: nextId++,
+            text: text,
+        });
     }
 
     function handleChangeTask(task) {
-        setTasks(
-            tasks.map((each) => {
-                if (each.id === task.id) {
-                    return task;
-                }
-                return each;
-            })
-        );
+        // setTasks(
+        //     tasks.map((each) => {
+        //         if (each.id === task.id) {
+        //             return task;
+        //         }
+        //         return each;
+        //     })
+        // );
+        dispatch({
+            type: 'changed',
+            task: task,
+        });
     }
 
     function handleDeleteTask(taskId) {
-        setTasks(tasks.filter((each) => each.id !== taskId));
+        // setTasks(tasks.filter((each) => each.id !== taskId));
+        dispatch({
+            type: 'deleted',
+            id: taskId,
+        });
     }
 
     return (
