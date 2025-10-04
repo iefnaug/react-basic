@@ -10,13 +10,14 @@ import './index.css'
 // import App from './03Manage-State/05Extracting-State-Logic-Into-A-Reducer/App'
 // import App from './03Manage-State/06Passing-Data-Deeply-With-Context/App'
 // import App from './03Manage-State/07ScallingUpWithReducerAndContext/App'
-import App from './04Escape-Hatches/01ReferencingValuesWithRefs/App'
-// import {StrictMode} from "react";
+// import App from './04Escape-Hatches/01ReferencingValuesWithRefs/App'
+import App from './04Escape-Hatches/02ManipulatingTheDomWithRefs/App'
+import {StrictMode} from "react";
 
 const root = createRoot(document.querySelector('#root'))
 
 root.render(
-    // <StrictMode>
+    <StrictMode>
         <App />
-    // </StrictMode>
+    </StrictMode>
 )
