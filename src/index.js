@@ -11,13 +11,14 @@ import './index.css'
 // import App from './03Manage-State/06Passing-Data-Deeply-With-Context/App'
 // import App from './03Manage-State/07ScallingUpWithReducerAndContext/App'
 // import App from './04Escape-Hatches/01ReferencingValuesWithRefs/App'
-import App from './04Escape-Hatches/02ManipulatingTheDomWithRefs/App'
+// import App from './04Escape-Hatches/02ManipulatingTheDomWithRefs/App'
+import App from './04Escape-Hatches/03SynchronizingWithEffects/App'
 import {StrictMode} from "react";
 
 const root = createRoot(document.querySelector('#root'))
 
 root.render(
-    <StrictMode>
+    // <StrictMode>
         <App />
-    </StrictMode>
+    // </StrictMode>
 )
