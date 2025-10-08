@@ -10,7 +10,8 @@ export default function App() {
         // FormBind()
         // Parent()
         // A()
-        A1()
+        // A1()
+        Call()
     )
 }
 
@@ -161,6 +162,27 @@ function A3() {
     return (
         <div>
             {obj.a} - {obj.b}
+        </div>
+    )
+}
+
+/**
+ * effect
+ */
+const url = 'http://localhost:8000/simple/list'
+function Call() {
+    useEffect(() => {
+        async function getList() {
+            const res = await fetch(url)
+            const list = await res.json();
+            console.log(list)
+            console.log(list.data)
+        }
+        getList()
+    }, [])
+    return (
+        <div>
+            remote call
         </div>
     )
 }
