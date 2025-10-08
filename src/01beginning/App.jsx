@@ -7,7 +7,9 @@ export default function App() {
         // List()
         // LogicShow()
         // Counter()
-        FormBind()
+        // FormBind()
+        // Parent()
+        A()
     )
 }
 
@@ -66,5 +68,71 @@ function FormBind() {
             <input type="text" ref={inputRef} onChange={(e) => setValue(e.target.value)} value={value} />
         </div>
 
+    )
+}
+
+/*
+组件传值
+ */
+function Child(props) {
+    console.log(props)
+    return (
+        <>
+            <div>this is a child</div>
+            {props.children}
+        </>
+    )
+}
+
+function Parent() {
+    let name = 'this is a child';
+    return (
+        <Child
+            name={name}
+            age={18}
+            isTrue={true}
+            obj={{a:1, b:2}}
+            arr={['a', 'b', 'c']}
+            fc={() => console.log('test')}
+            jsx={<span>this is jsx</span>}
+        >
+            <span>内部元素</span>
+        </Child>
+    )
+}
+
+/*
+同级组件通信，状态提升
+ */
+function A() {
+    const [msg, setMsg] = useState('')
+    function getMsg(msg) {
+        setMsg(msg)
+    }
+
+    // wrong way
+    // let msg = ''
+    // function getMsg(message) {
+    //     msg = message
+    // }
+
+    return (
+        <>
+            <B1 getMsg={getMsg}></B1>
+            <B2 msg={msg}></B2>
+        </>
+    )
+}
+
+function B1({getMsg}) {
+    let msg = 'the msg from B1'
+    return (
+        <div onClick={() => getMsg(msg)}>B1</div>
+    )
+}
+
+function B2({msg}) {
+    return (
+        <div>B2: {msg}</div>
     )
 }

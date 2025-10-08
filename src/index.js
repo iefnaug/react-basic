@@ -13,7 +13,8 @@ import { createRoot } from 'react-dom/client'
 // import App from './04Escape-Hatches/01ReferencingValuesWithRefs/App'
 // import App from './04Escape-Hatches/02ManipulatingTheDomWithRefs/App'
 // import App from './04Escape-Hatches/03SynchronizingWithEffects/App'
-import App from './05comment/App'
+// import App from './05comment/App'
+import App from './01beginning/App'
 import {StrictMode} from "react";
 
 const root = createRoot(document.querySelector('#root'))
