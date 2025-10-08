@@ -11,7 +11,8 @@ export default function App() {
         // Parent()
         // A()
         // A1()
-        Call()
+        // Call()
+        Show()
     )
 }
 
@@ -185,4 +186,27 @@ function Call() {
             remote call
         </div>
     )
+}
+
+/*
+自定义hook
+ */
+function Show() {
+    console.log('call Show')
+    const [value, toggle] = useShow()
+    return (
+        <div>
+            {value && <span>show</span>}
+            <button onClick={() => toggle()}>toggle</button>
+        </div>
+    )
+}
+
+function useShow() {
+    console.log('call useShow')
+    const [value, setValue] = useState(true)
+    function toggle() {
+        setValue(!value)
+    }
+    return [value, toggle]
 }
