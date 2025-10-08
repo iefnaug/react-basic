@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import {createContext, useContext, useEffect, useRef, useState} from "react";
 import './style.css'
 
 export default function App() {
@@ -9,7 +9,8 @@ export default function App() {
         // Counter()
         // FormBind()
         // Parent()
-        A()
+        // A()
+        A1()
     )
 }
 
@@ -134,5 +135,32 @@ function B1({getMsg}) {
 function B2({msg}) {
     return (
         <div>B2: {msg}</div>
+    )
+}
+
+/*
+使用context
+ */
+const CT = createContext({a: 1, b: 2})
+function A1() {
+    return (
+        <CT value={{a: 10, b: 20}}>
+            <A2/>
+        </CT>
+    )
+}
+
+function A2() {
+    return (
+        <A3/>
+    )
+}
+
+function A3() {
+    const obj = useContext(CT)
+    return (
+        <div>
+            {obj.a} - {obj.b}
+        </div>
     )
 }
