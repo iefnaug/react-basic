@@ -11,7 +11,8 @@ export default function App() {
         // Parent()
         // A()
         // A1()
-        Call()
+        // Call()
+        Bs()
     )
 }
 
@@ -185,4 +186,16 @@ function Call() {
             remote call
         </div>
     )
+}
+
+/*
+Bootstrap测试
+ */
+function Bs() {
+    return (
+        <div className="container mt-5 text-center">
+            <h1 className="mb-3">Bootstrap 已配置成功！</h1>
+            <button className="btn btn-success">点我试试</button>
+        </div>
+    );
 }
