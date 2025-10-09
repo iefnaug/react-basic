@@ -1,10 +1,11 @@
 import './App.scss'
 import avatar from './images/bozai.png'
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import _ from 'lodash'
 import classNames from "classnames";
 import {v4 as uuidV4} from 'uuid';
 import dayjs from "dayjs";
+import axios from "axios";
 
 /**
  * 评论列表的渲染和操作
@@ -80,7 +81,8 @@ const tabs = [
 
 const App = () => {
     const [type, setType] = useState('time')
-    const [list, setList] = useState(_.orderBy(defaultList, 'ctime', 'desc'))
+    // const [list, setList] = useState(_.orderBy(defaultList, 'ctime', 'desc'))
+    const [list, setList] = useState([])
     const [content, setContent] = useState('')
     const contentRef = useRef(null);
 
@@ -132,6 +134,23 @@ const App = () => {
         setContent('')
         contentRef.current.focus();
     }
+
+    useEffect(() => {
+        async function getList() {
+            await axios
+                .get('http://localhost:3004/list')
+                .then((res) => {
+                    console.log(res)
+                    setList(res.data)
+                })
+                .catch(err => console.log(err))
+                .finally(() => {
+                    console.log("finish")
+                })
+        }
+        getList()
+
+    }, []);
 
     return (
         <div className="app">
