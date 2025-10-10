@@ -1,6 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-
 import { createRoot } from 'react-dom/client'
 // import './index.css'
 // import App from './02Adding-Interactivity/02Render-And-Commit/App'
@@ -16,7 +13,8 @@ import { createRoot } from 'react-dom/client'
 // import App from './04Escape-Hatches/01ReferencingValuesWithRefs/App'
 // import App from './04Escape-Hatches/02ManipulatingTheDomWithRefs/App'
 // import App from './04Escape-Hatches/03SynchronizingWithEffects/App'
-import App from './05comment/App'
+// import App from './05comment/App'
+import App from './06Bootstrap/App'
 // import App from './01beginning/App'
 import {StrictMode} from "react";
 
