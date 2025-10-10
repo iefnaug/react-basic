@@ -7,7 +7,8 @@ export default function Grid({ children }) {
 function Demo1() {
     return (
         <>
-            <div className="container text-center">
+            <div className="container text-center bg-info">
+                {/*justify-content-md-center 内容对齐*/}
                 <div className="row justify-content-center">
                     <div className="col col-lg-2">
                         1 of 3
@@ -23,7 +24,8 @@ function Demo1() {
                     <div className="col">
                         1 of 3
                     </div>
-                    <div className="col-auto">
+                    {/*col-md-auto 宽度自适应内容，当容器宽度小于md时，内容独占一行*/}
+                    <div className="col-md-auto">
                         Variable width content
                     </div>
                     <div className="col col-lg-2">
@@ -82,10 +84,57 @@ function Demo4() {
     return (
         <div className="container text-center">
             <div className="row row-cols-2">
+                {/*这里一个col就是6*/}
                 <div className="col">Column</div>
                 <div className="col">Column</div>
                 <div className="col">Column</div>
                 <div className="col">Column</div>
+            </div>
+            <div className="row row-cols-3">
+                <div className="col">Column</div>
+                <div className="col">Column</div>
+                <div className="col">Column</div>
+                <div className="col">Column</div>
+            </div>
+            <div className="row row-cols-auto">
+                <div className="col">Column</div>
+                <div className="col">Column</div>
+                <div className="col">Column</div>
+                <div className="col">Column</div>
+            </div>
+            <div className="container text-center">
+                <div className="row row-cols-4">
+                    <div className="col">Column</div>
+                    <div className="col">Column</div>
+                    <div className="col-6">Column</div>
+                    <div className="col">Column</div>
+                </div>
+            </div>
+            <div className="container text-center">
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                    <div className="col">Column</div>
+                    <div className="col">Column</div>
+                    <div className="col">Column</div>
+                    <div className="col">Column</div>
+                </div>
+            </div>
+            {/*嵌套*/}
+            <div className="container text-center">
+                <div className="row">
+                    <div className="col-sm-3">
+                        Level 1: .col-sm-3
+                    </div>
+                    <div className="col-sm-9">
+                        <div className="row">
+                            <div className="col-8 col-sm-6">
+                                Level 2: .col-8 .col-sm-6
+                            </div>
+                            <div className="col-4 col-sm-6">
+                                Level 2: .col-4 .col-sm-6
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
