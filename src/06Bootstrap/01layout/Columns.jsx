@@ -1,6 +1,6 @@
 export default function () {
     return  (
-        <Demo3 />
+        <Demo4 />
     )
 }
 
@@ -93,6 +93,16 @@ function Demo3() {
 
                 <div className="col-6 col-sm-4">.col-6 .col-sm-4</div>
                 <div className="col-6 col-sm-4">.col-6 .col-sm-4</div>
+            </div>
+        </div>
+    )
+}
+
+function Demo4() {
+    return (
+        <div className="container text-center">
+            <div className="row">
+                <div className="col-6 offset-6">.col-6</div>
             </div>
         </div>
     )
